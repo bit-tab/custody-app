@@ -23,11 +23,12 @@
   - Registro de gastos compartidos
   - Chat entre progenitores
   - Subida de documentos (informes médicos, notas escolares)
-  - Recordatorios automáticos
-  - Notificaciones de eventos importantes
+
 
 ❤️‍🩹Mejoras futuras
   - Aplicación móvil
   - Integración con calendarios externos (Google Calendar)
   - Sistema de alertas avanzadas
   - Gestión para más de dos tutores
+  - Recordatorios automáticos
+  - Notificaciones de eventos importantes
