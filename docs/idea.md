@@ -1,5 +1,8 @@
 **Idea del proyecto**
 
+
+👉 Aplicación web con frontend + backend + base de datos
+
 ✒️Descripción
   La aplicación consiste en una herramienta web para gestionar custodias compartidas entre padres separados. Su objetivo es facilitar la organización del tiempo con los hijos, mejorar la comunicación y evitar malentendidos.
 

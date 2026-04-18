@@ -33,3 +33,63 @@ Organización del trabajo
 
 Colaboración
    Se ha intentado añadir al usuario @corner-estudios al tablero para permitir la supervisión del progreso del proyecto.
+
+
+[
+  TAREAS TÉCNICAS (MUY IMPORTANTES)
+⚙️ Configuración inicial del proyecto
+
+Checklist:
+
+Crear estructura de carpetas
+Inicializar proyecto (frontend/backend)
+Configurar repositorio Git
+Crear archivo README
+Instalar dependencias básicas
+🖥️ Estructura frontend
+
+Checklist:
+
+Crear estructura de componentes
+Configurar rutas
+Crear layout principal
+Configurar estilos base
+Organizar carpetas
+🗄️ Estructura backend
+
+Checklist:
+
+Crear servidor
+Configurar rutas API
+Crear controladores
+Conectar con base de datos
+Manejo de errores
+🧠 Diseño de base de datos
+
+Checklist:
+
+Definir entidades (usuarios, eventos, etc.)
+Crear relaciones entre tablas
+Definir campos
+Crear esquema
+Preparar migraciones o scripts
+🔗 API REST
+
+Checklist:
+
+Crear endpoints de usuarios
+Crear endpoints de eventos
+Crear endpoints de calendario
+Implementar CRUD
+Probar endpoints
+🧪 Testing básico
+
+Checklist:
+
+Probar registro de usuarios
+Probar login
+Probar creación de eventos
+Probar calendario
+Detectar errores
+
+]
