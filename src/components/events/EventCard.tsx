@@ -1,5 +1,5 @@
 import { Card } from "../../ui/Card";
-import type { Event } from "../types/events";
+import type { Event } from "../../types/events";
 
 type Props = {
   event: Event;

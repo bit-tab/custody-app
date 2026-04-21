@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import type { Event } from "../src/types/events";
+import type { Event } from "../types/events";
 
 export function useEvents() {
   const [events, setEvents] = useState<Event[]>([]);
