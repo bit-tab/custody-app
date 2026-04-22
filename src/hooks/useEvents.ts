@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
-import type { Event } from "../types/events";
+import type { AppEvent } from "../types/events";
 
 export function useEvents() {
-  const [events, setEvents] = useState<Event[]>([]);
+  const [events, setEvents] = useState<AppEvent[]>([]);
 
   // Cargar desde localStorage
   useEffect(() => {
@@ -18,12 +18,17 @@ export function useEvents() {
     localStorage.setItem("events", JSON.stringify(events));
   }, [events]);
 
-  const addEvent = (event: Event) => {
+  const addEvent = (event: AppEvent) => {
     setEvents((prev) => [...prev, event]);
+  };
+
+  const deleteEvent = (index: number) => {
+    setEvents((prev) => prev.filter((_, i) => i !== index));
   };
 
   return {
     events,
     addEvent,
+    deleteEvent,
   };
 }

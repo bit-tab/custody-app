@@ -1,4 +1,4 @@
-export type Event = {
+export type AppEvent = {
   title: string;
   date: string;
   time: string;

@@ -1,16 +1,16 @@
 import { useState } from "react";
 import { Button } from "../../ui/Button";
-import type { Event } from "../../types/events";
+import type { AppEvent } from "../../types/events";
 
 type Props = {
-  onAdd: (event: Event) => void;
+  onAdd: (event: AppEvent) => void;
 };
 
 export function EventForm({ onAdd }: Props) {
   const [title, setTitle] = useState("");
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
-  const [type, setType] = useState<Event["type"]>("otro");
+  const [type, setType] = useState<AppEvent["type"]>("otro");
   const [notes, setNotes] = useState("");
 
   const handleSubmit = () => {
@@ -61,7 +61,7 @@ export function EventForm({ onAdd }: Props) {
       <select
         className="border p-2 w-full rounded"
         value={type}
-        onChange={(e) => setType(e.target.value as Event["type"])}
+        onChange={(e) => setType(e.target.value as AppEvent["type"])}
       >
         <option value="medico">Médico</option>
         <option value="escolar">Escolar</option>

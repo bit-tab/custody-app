@@ -5,11 +5,10 @@ import { EventForm } from "./components/forms/EventForm";
 import { useEvents } from "./hooks/useEvents";
 
 function App() {
-  const { events, addEvent } = useEvents();
+  const { events, addEvent, deleteEvent } = useEvents();
 
   const [showForm, setShowForm] = useState(false);
 
-  // eventos médicos (optimización)
   const medicalEvents = useMemo(() => {
     return events.filter((e) => e.type === "medico");
   }, [events]);
@@ -17,8 +16,6 @@ function App() {
   return (
     <Layout>
       <div className="space-y-4">
-
-        {/* HEADER */}
         <h1 className="text-2xl font-bold">
           🪢 Custody App 🪢
         </h1>
@@ -27,7 +24,6 @@ function App() {
           Gestión de custodias, eventos y organización familiar
         </p>
 
-        {/* BOTÓN TOGGLE */}
         <button
           className="bg-blue-600 text-white px-4 py-2 rounded"
           onClick={() => setShowForm((prev) => !prev)}
@@ -35,7 +31,6 @@ function App() {
           {showForm ? "Cerrar formulario" : "+ Añadir evento"}
         </button>
 
-        {/* FORMULARIO */}
         {showForm && (
           <EventForm
             onAdd={(event) => {
@@ -45,14 +40,12 @@ function App() {
           />
         )}
 
-        {/* INFO */}
         <p className="text-sm">
           Eventos médicos: {medicalEvents.length}
         </p>
 
-        {/* LISTA */}
-        <EventList events={events} />
-
+        {/* 👇 AQUÍ PASAMOS delete */}
+        <EventList events={events} onDelete={deleteEvent} />
       </div>
     </Layout>
   );
