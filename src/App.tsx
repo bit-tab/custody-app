@@ -5,10 +5,9 @@ import { EventForm } from "./components/forms/EventForm";
 import { useEvents } from "./hooks/useEvents";
 
 function App() {
-  const { events, addEvent, deleteEvent } = useEvents();
-
+  const { events, addEvent, deleteEvent, updateEvent } = useEvents();
   const [showForm, setShowForm] = useState(false);
-
+  const [editingIndex, setEditingIndex] = useState<number | null>(null);
   const medicalEvents = useMemo(() => {
     return events.filter((e) => e.type === "medico");
   }, [events]);
@@ -33,10 +32,15 @@ function App() {
 
         {showForm && (
           <EventForm
-            onAdd={(event) => {
-              addEvent(event);
-              setShowForm(false);
-            }}
+             onAdd={(event) => {
+              if (editingIndex !== null) {
+                updateEvent(editingIndex, event);
+                setEditingIndex(null);
+                } else {
+                  addEvent(event);
+                }
+                setShowForm(false);
+               }}
           />
         )}
 
@@ -45,7 +49,14 @@ function App() {
         </p>
 
         {/* 👇 AQUÍ PASAMOS delete */}
-        <EventList events={events} onDelete={deleteEvent} />
+        <EventList
+          events={events}
+          onDelete={deleteEvent}
+          onEdit={(index: number) => {
+              setEditingIndex(index);
+              setShowForm(true);
+          }}
+      />
       </div>
     </Layout>
   );

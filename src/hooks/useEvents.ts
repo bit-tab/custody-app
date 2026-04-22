@@ -26,9 +26,16 @@ export function useEvents() {
     setEvents((prev) => prev.filter((_, i) => i !== index));
   };
 
+  const updateEvent = (index: number, updated: AppEvent) => {
+  setEvents((prev) =>
+    prev.map((e, i) => (i === index ? updated : e))
+  );
+};
+
   return {
     events,
     addEvent,
     deleteEvent,
+    updateEvent,
   };
 }

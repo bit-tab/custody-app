@@ -4,9 +4,10 @@ import type { AppEvent } from "../../types/events";
 type Props = {
   events: AppEvent[];
   onDelete: (index: number) => void;
+  onEdit: (index: number) => void; // 👈 AÑADIR ESTO
 };
 
-export function EventList({ events, onDelete }: Props) {
+export function EventList({ events, onDelete, onEdit }: Props) {
   return (
     <div className="grid gap-3">
       {events.map((event, index) => (
@@ -14,6 +15,7 @@ export function EventList({ events, onDelete }: Props) {
           key={index}
           event={event}
           onDelete={() => onDelete(index)}
+          onEdit={() => onEdit(index)} // 👈 AÑADIR ESTO
         />
       ))}
     </div>
