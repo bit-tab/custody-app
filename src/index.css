@@ -2,3 +2,52 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* 🔥 CALENDARIO GRANDE Y LIMPIO */
+.react-calendar {
+  width: 100% !important;
+  max-width: 100% !important;
+  font-size: 1.2rem;
+  background-color: #f9fafb !important;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 1rem;
+}
+
+/* 📅 DÍAS */
+.react-calendar__tile {
+  padding: 1rem 0.5rem;
+  border-radius: 8px;
+}
+
+/* 🧭 NAVEGACIÓN */
+.react-calendar__navigation {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+/* 🔵 DÍA SELECCIONADO */
+.react-calendar__tile--active {
+  background: #3b82f6 !important;
+  color: white;
+}
+
+/* ✨ HOVER */
+.react-calendar__tile:hover {
+  background: #e0f2fe;
+}
+
+/* 🔴 FINES DE SEMANA */
+.react-calendar__month-view__days__day--weekend {
+  color: #ef4444;
+}
+
+/* 🌙 DARK MODE */
+.dark .react-calendar {
+  background-color: #1f2937 !important;
+  color: white;
+}
+
+.react-calendar {
+  background-color: rgb(0, 251, 255) !important;
+}

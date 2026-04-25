@@ -4,7 +4,7 @@ import type { AppEvent } from "../../types/events";
 type Props = {
   events: AppEvent[];
   onDelete: (index: number) => void;
-  onEdit: (index: number) => void; // 👈 AÑADIR ESTO
+  onEdit: (index: number) => void; 
 };
 
 export function EventList({ events, onDelete, onEdit }: Props) {
@@ -15,7 +15,7 @@ export function EventList({ events, onDelete, onEdit }: Props) {
           key={index}
           event={event}
           onDelete={() => onDelete(index)}
-          onEdit={() => onEdit(index)} // 👈 AÑADIR ESTO
+          onEdit={() => onEdit(index)} 
         />
       ))}
     </div>

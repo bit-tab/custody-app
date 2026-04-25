@@ -1,63 +1,21 @@
-import { useState, useMemo } from "react";
+import { Routes, Route } from "react-router-dom";
 import { Layout } from "./components/layout/Layout";
-import { EventList } from "./components/events/EventList";
-import { EventForm } from "./components/forms/EventForm";
-import { useEvents } from "./hooks/useEvents";
+import { CalendarPage } from "./pages/CalendarPage";
+import { EventsPage } from "./pages/EventsPage";
 
 function App() {
-  const { events, addEvent, deleteEvent, updateEvent } = useEvents();
-  const [showForm, setShowForm] = useState(false);
-  const [editingIndex, setEditingIndex] = useState<number | null>(null);
-  const medicalEvents = useMemo(() => {
-    return events.filter((e) => e.type === "medico");
-  }, [events]);
-
   return (
     <Layout>
-      <div className="space-y-4">
-        <h1 className="text-2xl font-bold">
-          🪢 Custody App 🪢
-        </h1>
+      <Routes>
+        {/* HOME → CALENDARIO */}
+        <Route path="/" element={<CalendarPage />} />
 
-        <p className="text-sm text-gray-500">
-          Gestión de custodias, eventos y organización familiar
-        </p>
+        {/* EVENTOS */}
+        <Route path="/events" element={<EventsPage />} />
 
-        <button
-          className="bg-blue-600 text-white px-4 py-2 rounded"
-          onClick={() => setShowForm((prev) => !prev)}
-        >
-          {showForm ? "Cerrar formulario" : "+ Añadir evento"}
-        </button>
-
-        {showForm && (
-          <EventForm
-             onAdd={(event) => {
-              if (editingIndex !== null) {
-                updateEvent(editingIndex, event);
-                setEditingIndex(null);
-                } else {
-                  addEvent(event);
-                }
-                setShowForm(false);
-               }}
-          />
-        )}
-
-        <p className="text-sm">
-          Eventos médicos: {medicalEvents.length}
-        </p>
-
-        {/* 👇 AQUÍ PASAMOS delete */}
-        <EventList
-          events={events}
-          onDelete={deleteEvent}
-          onEdit={(index: number) => {
-              setEditingIndex(index);
-              setShowForm(true);
-          }}
-      />
-      </div>
+        {/* 404 (opcional pero pro) */}
+        <Route path="*" element={<p>Página no encontrada</p>} />
+      </Routes>
     </Layout>
   );
 }
