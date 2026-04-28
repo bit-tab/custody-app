@@ -1,4 +1,4 @@
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import { Layout } from "./components/layout/Layout";
 import { CalendarPage } from "./pages/CalendarPage";
 import { EventsPage } from "./pages/EventsPage";
