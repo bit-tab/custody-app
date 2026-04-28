@@ -1,11 +1,12 @@
 import { useState } from "react";
-import { useEvents } from "../hooks/useEvents";
+//import { useEvents } from "../hooks/useEvents";  Ahora pasamos de usar hook a csontexto:
+import { useEventsContext } from "../context/EventsContext";
 import { EventForm } from "../components/forms/EventForm";
 import { EventList } from "../components/events/EventList";
 import type { AppEvent } from "../types/events";
 
 export function EventsPage() {
-  const { events, addEvent, deleteEvent, updateEvent } = useEvents();
+  const { events, addEvent, deleteEvent, updateEvent } = useEventsContext();
 
   const [showForm, setShowForm] = useState(false);
   const [editingEvent, setEditingEvent] = useState<AppEvent | null>(null);

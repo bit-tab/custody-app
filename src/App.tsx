@@ -1,19 +1,19 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Link } from "react-router-dom";
 import { Layout } from "./components/layout/Layout";
 import { CalendarPage } from "./pages/CalendarPage";
 import { EventsPage } from "./pages/EventsPage";
+import { CustodySettingsPage } from "./pages/CustodySettingsPage";
 
 function App() {
   return (
     <Layout>
+
+
+      {/* 🔹 RUTAS */}
       <Routes>
-        {/* HOME → CALENDARIO */}
         <Route path="/" element={<CalendarPage />} />
-
-        {/* EVENTOS */}
         <Route path="/events" element={<EventsPage />} />
-
-        {/* 404 (opcional pero pro) */}
+        <Route path="/custody" element={<CustodySettingsPage />} />
         <Route path="*" element={<p>Página no encontrada</p>} />
       </Routes>
     </Layout>

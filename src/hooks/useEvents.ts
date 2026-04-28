@@ -2,18 +2,21 @@ import { useState, useEffect } from "react";
 import type { AppEvent } from "../types/events";
 
 export function useEvents() {
-  const [events, setEvents] = useState<AppEvent[]>([]);
-
-  // Cargar desde localStorage
-  useEffect(() => {
+  const [events, setEvents] = useState<AppEvent[]>(() => {
     const stored = localStorage.getItem("events");
 
     if (stored) {
-      setEvents(JSON.parse(stored));
+      try {
+        return JSON.parse(stored);
+      } catch {
+        return [];
+      }
     }
-  }, []);
 
-  // Guardar cada vez que cambian
+    return [];
+  });
+
+  // guardar en localStorage
   useEffect(() => {
     localStorage.setItem("events", JSON.stringify(events));
   }, [events]);
@@ -27,10 +30,10 @@ export function useEvents() {
   };
 
   const updateEvent = (index: number, updated: AppEvent) => {
-  setEvents((prev) =>
-    prev.map((e, i) => (i === index ? updated : e))
-  );
-};
+    setEvents((prev) =>
+      prev.map((e, i) => (i === index ? updated : e))
+    );
+  };
 
   return {
     events,
